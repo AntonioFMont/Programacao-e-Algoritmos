@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdbool.h>
 int main(){
 int n_provas, i, n_reprovados, n_aprovados;
 float media, soma, prova[10], reprovados[10], aprovados[10];
