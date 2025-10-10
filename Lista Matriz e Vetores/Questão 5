@@ -12,11 +12,6 @@ alto para o mais baixo.
  */
 float maior=0, menor=10, altura[6], aux=0;
 int x, i;
-
-int ordenador(){
-    return altura[x];
-}
-
 int main() {
     for(i=0; i < 6; i++){
         printf("Digite a altura do %d jogador\n", i+1);
