@@ -12,10 +12,10 @@ int main(){
 
     for(i=0;i < 3; i++){
     printf("Digite o nome do %d produto: ", i+1);
+    setbuf(stdin, NULL);
     fgets(produtos[i].nome, 20, stdin);
     printf("Digite o preco do %d produto: ", i+1);
     scanf("%f", &produtos[i].preco);
-    getchar();
     }   
     media = (produtos[0].preco + produtos[1].preco + produtos[2].preco)/3;
     printf("A media de preco dos 3 itens e: %.2f\n", media);
