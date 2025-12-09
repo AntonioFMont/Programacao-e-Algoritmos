@@ -1,0 +1,21 @@
+
+
+
+faço 1 array de char para cada linha desse txt, quando eu for colocar os navios, basta dar fseek e pulhar a quantidade de char ate a posição da linha em que eu quero,
+e dentro dela eu faço uma formula para calcular a cordenada baseado na distancias entre os pontos.
+
+para saber a casa correspondete das cordenadas abcdefgh em relação a string,
+basta subtrair a cordenada - 97(por que o a e a letra 97 ent a-96 = 1, porem como a string começa em 0 a -97 = 0)e entao multiplica por 3;
+
+
+
+faço uma função que recebe uma string para ser as duas cordenadas
+ddentro da função eu separo a string em um int e um char
+então eu faço as verificações se esta correto ou não a posição
+depois verifico se ja tem navios naquela posição
+então eu faço o switch case e coloco os X
+
+para fazer isso eu vou criar a string de char antes, uma pra
+cada navio(char pirata[3]...) ai eu so chamo elas dentro
+da função de colocar os navios(precisa ser ponteiro?)
+

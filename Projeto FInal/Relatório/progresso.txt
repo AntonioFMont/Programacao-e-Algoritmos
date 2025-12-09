@@ -1,0 +1,38 @@
+05/12/25
+    Eu descobri um bug que se o cara digitar as cordenadas de tras pra frente o meu codigo n sabe como fazer e nao digita nada(por que o for esta decrecente)
+    a unica forma que vejo de resolver agora seria fazendo um if pra caso seja crescente, e else pra decrescente, mas seria mt longo e impossivel.
+    Tambem descobri q ao inves de fazer 8 switch case pra cada barco como eu fiz, eu podia so ter feito a matriz com linhas variaveis com as que o input recebeu,
+    so que agr e tarde demais pra mudar, mas tenho q lembrar pra futuros projetos.
+
+    Proxima coisa a fazer agora é deixar esse codigo como uma função a ser chamada tanto pro primeiro, como pro segundo jogador, entao salva-la num arquivo.
+    Após isso eu faço a função do jogo, com turno alternados e dinamicos entre dois jogadores.
+
+06/12/25
+    fiz a função por referencia agr ajeitar o bug pra fazer rodar
+07/12/25
+        O problema foi que eu fiz ele receber uma matriz de ponteiros, quando usei o char *linha[8][26],
+    para fazer ele receber um ponteiro para uma matriz de char eu deveria te rusado (*linha)[8][26]; porem me resta um pouco de duvida do por que;
+        Aparentemente quando colocamos o (), o codigo o lê o () e o [] antes do *, então ele vê, um PONTEIRO para uma MATRIZ de CHAR, 
+    ao invés de, apenas com o * que seria uma MATRIZ de PONTEIROS de CHAR, ou seja, uma matriz de ponteiros para char,
+    que não é o que eu quero que ele receba, quero que ele receba uma matriz de char por referencia, ou seja, um PONTEIRO que aponte para uma MATRIZ de char.
+        Descobri que sempre que você fizer mudanças no codigo, tem que recompilar novamente o .exe ... eu tava fazendo isso tudo sem recompilar ele pqp.
+        Ajeitei o programa e agora ele salva o tabuleiro do jogador 1, vou fazer com o player 2 e depois tenho que pensar se eu preciso salvar as localizações abc ou não,
+    pq querendo ou nao elas n vao mudar a posição das casas no salvamento, eu posso so salvar e usar elas nas funções de criação de vetor e no jogo(sera que é mais pratico salvar?)
+    pq se eu salvar logo junto eu n preciso adicionar ela no final de toda chamada do tabuleiro, porem ela poder dar bug na matriz do tabuleiro.(algo a se pensar);
+
+
+
+
+            - base função -
+        Função tem que se repetir e alternar entre os dois jogadores
+    eu posso fazer um do while que acaba quando um if(pontuador que vira true quando )
+    
+
+            - gameplay -
+        Fazer a função para começar o jogo, ela recebe os dois tabuleiros dos jogadores(talvez seja bom fazer ela receber o FILE onde os ponteiros estao guardados talvez?)
+    e funciona por turnos, eu crio um novo FILE chamado campo inimigo e coloco o campo vazio la, o primeiro turno o jogador 1 ve um campo vazio, e atira numa cordenada,
+    entao eu verifico se essa cordenada, no tabuleiro do jogador 2, tem um navio ou nao, se nao tiver,
+    o jogo retorna que não acertou nada e printa o campo com o simbolo de acertar na agua(ou X  ou (X), vou decidir ainda),
+    se ele tiver eu digo que acertou e printo da mesma forma, antes de trocar de jogador, eu dou um fclose(f) para salvar o campo com a jogada do jogador 1.
+        Após isso, eu dou clear e digo que e a vez do jogador 2, eu coloco um system("pause > nul"); para o jogador 2 digitar e fazer sua jogada,
+    crio outro FILE pro jogador 2, e assim vai.

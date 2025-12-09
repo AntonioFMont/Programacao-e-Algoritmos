@@ -1,0 +1,9 @@
+-------------------------Como Jogar-------------------------
+  O jogo é jogado com duas pessoas. 
+Antes de começar a jogar, o primeiro jogador deverá escolher aonde colocar seus navios, sendo eles:
+Navio Pirata - 5 unidades;
+Navio Viking - 4 unidadades;
+Barco de pesca - 3 unidades;
+Bote - 2 unidades;
+Após os dois jogadores escolherem as posiçoes dos seus barcos, o jogo começa.
+O jogo é jogado por turnos, e a cada turno o jogador tem a chance de escolher uma cordenada(linha e coluna), e atacar o tabuleiro inimigo
