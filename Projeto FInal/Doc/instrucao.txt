@@ -1,9 +1,24 @@
 -------------------------Como Jogar-------------------------
-  O jogo é jogado com duas pessoas. 
-Antes de começar a jogar, o primeiro jogador deverá escolher aonde colocar seus navios, sendo eles:
-Navio Pirata - 5 unidades;
-Navio Viking - 4 unidadades;
-Barco de pesca - 3 unidades;
-Bote - 2 unidades;
-Após os dois jogadores escolherem as posiçoes dos seus barcos, o jogo começa.
-O jogo é jogado por turnos, e a cada turno o jogador tem a chance de escolher uma cordenada(linha e coluna), e atacar o tabuleiro inimigo
+  O jogo e jogado com duas pessoas. 
+Antes de comecar a jogar, o primeiro jogador devera escolher aonde colocar seus navios, sendo eles:
+Navio Pirata - 5 unidades;    
+Navio Viking - 4 unidadades;  
+Barco de pesca - 3 unidades;  
+Canoa - 2 unidades;
+  Sendo cada escolha feita usando as notacoes do tabuleiro 8x8 ao estilo xadrez. com colunas representadas por letras, e linhas representadas por numeros dessa forma:
+.  .  .  .  .  .  .  .  8
+.  .  .  .  .  .  .  .  7
+.  .  .  .  .  .  .  .  6
+.  .  .  .  .  .  .  .  5
+.  .  .  .  .  .  .  .  4
+.  .  .  .  .  .  .  .  3
+.  .  .  .  .  .  .  .  2
+.  .  .  .  .  .  .  .  1
+a  b  c  d  e  f  g  h
+cada jogador escolhe a primeira, e a ultima coordenada do seu navio, e ele e colocado no tabuleiro. Apos os dois jogadores escolherem as posicoes dos seus barcos, o jogo comeca.
+O jogo e jogado por turnos, e a cada turno o jogador tem a chance de escolher uma cordenada(linha e coluna) representado pelo modelo LetraNumero(a8, g5, f4...), 
+e atacar o tabuleiro inimigo, caso o jogador acerte um navio, ele podera jogar novamente ate que erre. Apos o erro, o jogo passa para o proximo jogador.
+a cada final de rodada, os jogadores terao a opcao de, salvar o jogo e sair, ou continuar jogando, caso os jogadores desejem salvar o jogo, eles poderao acessa-lo novamente pela opcao
+"Continuar" o menu principal. 
+Sempre que uma partida e vencida, ela e salva no arquivo JogosSalvos.txt, que salva o dia que a partida foi jogada, as rodadas, os acertos erros e quem foi o vencedor.
+Obrigado por jogar Batalha Naval e espero que se divirta!

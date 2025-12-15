@@ -21,8 +21,6 @@
     pq se eu salvar logo junto eu n preciso adicionar ela no final de toda chamada do tabuleiro, porem ela poder dar bug na matriz do tabuleiro.(algo a se pensar);
 
 
-
-
             - base função -
         Função tem que se repetir e alternar entre os dois jogadores
     eu posso fazer um do while que acaba quando um if(pontuador que vira true quando )
@@ -36,3 +34,18 @@
     se ele tiver eu digo que acertou e printo da mesma forma, antes de trocar de jogador, eu dou um fclose(f) para salvar o campo com a jogada do jogador 1.
         Após isso, eu dou clear e digo que e a vez do jogador 2, eu coloco um system("pause > nul"); para o jogador 2 digitar e fazer sua jogada,
     crio outro FILE pro jogador 2, e assim vai.
+
+    09/12/25
+        Vou fazer um do while que passa entre turnos o jogador 1 e depois o jogador 2, e, entre cada turno de jogador, eu faço um if que é ativado quando o jogador acerta todos os navios inimigos
+    ao ativar-lo eu crio uma variavel para dizer qual jogador ganhou então eu saio do loop com o break e faço um if que diz qual dos dois ganhou, ai dentro dos dois eu coloco os parabens
+    e pergunto se quer jogar de novo, ai se sim, eu saio da função e repito o loop para o menu principal.
+        Para salvar e voltar, quando o jogador escolhe salvar, eu salvo em um FILE o numero de acertos de cada jogador, porque quando um jogador acertar todos os barcos o jogo acaba,
+    e salvo um int que diz se é um jogo novo ou não, se for um jogo novo então a primeira parte da função(a que diz para o jogador 1 escolher a primeira casa ) é pulada e vai direto pra 
+    vez do jogador 1.
+        Erros:  Quando um jogador ataca uma coordenada que ja foi atacada antes, o jogo da erro e fica num loop de receber a casa que o jogador quer atacar.
+                Não consigo salvar o arquivo.
+
+        Falta: Ajeitar os erros; 
+               Fazer com que a opção CONTINUAR, volte para a função gameplay e começe no ponto salvo do jogo(posso adicionar um valor que é recebido pela gameplay() que se for 1 pula a introdução e vai direto para os turnos);
+               Fazer um arquivo de texto que salva as informações finais da partida(se der tempo faço uma que diz a data da partida jogada, não sei como).
+               

@@ -1,0 +1,7 @@
+   Jogo do dia 14/12/2025
+Vencedor: Player1
+Numero de rodadas: 16
+Acertos jogador 1: 14
+Erros jogador 1: 2
+Acertos jogador 2: 13
+Erros jogador 2: 2

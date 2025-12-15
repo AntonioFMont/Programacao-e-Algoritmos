@@ -45,9 +45,9 @@ void montar_tabuleiro(char (*linha)[8][26]) {  // o *linha nao tava dando certo 
 
     bool aux = true;
     do{
-        printf("Digite a primeira ponta do navio pirata: ");
+        printf("Digite a primeira ponta do Navio Pirata: ");
         scanf("%s", &ponta); // string n precisa de &, mas é uma boa pratica colocar ou é desnecessario?
-        printf("Digite a segunda ponta do navio(O navio ocupa 5 casas): ");
+        printf("Digite a segunda ponta do Navio(O navio ocupa 5 casas): ");
         scanf("%s", &ponta2);
         
         if((ponta[0] - 97) > 7 || (ponta2[0] - 97) > 7 || (ponta[1] - 49) > 7 || (ponta2[1] - 49 > 7)){
@@ -62,13 +62,11 @@ void montar_tabuleiro(char (*linha)[8][26]) {  // o *linha nao tava dando certo 
             aux = true;
         }else if(ponta2[0] - 4 == ponta[0]){
             aux = true;
-        }else if(ponta[1]- 4 == ponta2[1]){
-            aux = true;
         }else{
             aux = false;
         }
         if(aux == false){
-            printf("Por favor, digite um distancia do tamanho do navio(5 casas) e que esteja dentro dos limites do mapa\n");
+            printf("Por favor, digite um distancia do tamanho do Navio(5 casas) e que esteja dentro dos limites do mapa\n");
         }   
     } while(aux == false);
     
@@ -81,88 +79,88 @@ void montar_tabuleiro(char (*linha)[8][26]) {  // o *linha nao tava dando certo 
         case 1:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){    //faço porque o char 'a' e a letra numero 97 na tabela, portanto 'a' - 97 = 0
-                    (*linha)[0][i] = 'O';
+                    (*linha)[0][i] = 'P';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                    (*linha)[i][(letra1-97)*3] = 'O';
+                    (*linha)[i][(letra1-97)*3] = 'P';
                 }
             }
         break;
         case 2:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[1][i] = 'O';
+                    (*linha)[1][i] = 'P';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'P';
                 }
             }
         break;
         case 3:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[2][i] = 'O';
+                    (*linha)[2][i] = 'P';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'P';
                 }
             }
         break;
         case 4:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[3][i] = 'O';
+                    (*linha)[3][i] = 'P';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'P';
                 }
             }
         break;
         case 5:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[4][i] = 'O';
+                    (*linha)[4][i] = 'P';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'P';
                 }
             }
         break;
         case 6:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[5][i] = 'O';
+                    (*linha)[5][i] = 'P';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'P';
                 }
             }
         break;
         case 7:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[6][i] = 'O';
+                    (*linha)[6][i] = 'P';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'P';
                 }
             }
         break;
         case 8:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[7][i] = 'O';
+                    (*linha)[7][i] = 'P';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'P';
                 }
             }
         break;
@@ -196,26 +194,26 @@ void montar_tabuleiro(char (*linha)[8][26]) {  // o *linha nao tava dando certo 
             aux = true;
         }else if(ponta2[0] - 3 == ponta[0]){
             aux = true;
-        }else if(ponta[1]- 3 == ponta2[1]){
-            aux = true;
         }else{  
             aux = false;
         }
-        if(numero1 == numero2){
-            for (int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                if ((*linha)[numero1-1][i] == 'O'){
-                    printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
-                    aux = false;
-                    break;
+        if(aux == true){
+            if(numero1 == numero2){
+                for (int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
+                    if ((*linha)[numero1-1][i] != '.'){
+                        printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
+                        aux = false;
+                        break;
+                    }
                 }
-            }
-            
-        } else if(letra1 == letra2){
-            for(int i = numero1 - 1; i <= numero2 - 1; i++){
-                if((*linha)[i][letra1 - 97] == 'O'){
-                    printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
-                    aux = false;
-                    break;
+
+            } else if(letra1 == letra2){
+                for(int i = numero1 - 1; i <= numero2 - 1; i++){
+                    if((*linha)[i][(letra1 - 97) * 3] != '.'){
+                        printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
+                        aux = false;
+                        break;
+                    }
                 }
             }
         }
@@ -229,88 +227,88 @@ void montar_tabuleiro(char (*linha)[8][26]) {  // o *linha nao tava dando certo 
         case 1:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[0][i] = 'O';
+                    (*linha)[0][i] = 'V';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                    (*linha)[i][(letra1-97)*3] = 'O';
+                    (*linha)[i][(letra1-97)*3] = 'V';
                 }
             }
         break;
         case 2:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[1][i] = 'O';
+                    (*linha)[1][i] = 'V';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'V';
                 }
             }
         break;
         case 3:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[2][i] = 'O';
+                    (*linha)[2][i] = 'V';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'V';
                 }
             }
         break;
         case 4:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[3][i] = 'O';
+                    (*linha)[3][i] = 'V';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'V';
                 }
             }
         break;
         case 5:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[4][i] = 'O';
+                    (*linha)[4][i] = 'V';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'V';
                 }
             }
         break;
         case 6:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[5][i] = 'O';
+                    (*linha)[5][i] = 'V';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'V';
                 }
             }
         break;
         case 7:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[6][i] = 'O';
+                    (*linha)[6][i] = 'V';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'V';
                 }
             }
         break;
         case 8:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[7][i] = 'O';
+                    (*linha)[7][i] = 'V';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'V';
                 }
             }
         break;
@@ -344,26 +342,26 @@ void montar_tabuleiro(char (*linha)[8][26]) {  // o *linha nao tava dando certo 
             aux = true;
         }else if(ponta2[0] - 2 == ponta[0]){
             aux = true;
-        }else if(ponta[1] - 2 == ponta2[1]){
-            aux = true;
         }else{
             aux = false;
         }
-        if(numero1 == numero2){
-            for (int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){ 
-                if ((*linha)[numero1-1][i] == 'O'){
-                    printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
-                    aux = false;
-                    break;
+        if(aux == true){
+            if(numero1 == numero2){
+                for (int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){ 
+                    if ((*linha)[numero1-1][i] != '.'){
+                        printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
+                        aux = false;
+                        break;
+                    }
                 }
-            }
-            
-        } else if(letra1 == letra2){
-            for(int i = numero1 - 1; i <= numero2 - 1; i++){
-                if((*linha)[i][letra1 - 97] == 'O'){
-                    printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
-                    aux = false;
-                    break;
+
+            } else if(letra1 == letra2){
+                for(int i = numero1 - 1; i <= numero2 - 1; i++){
+                    if((*linha)[i][(letra1 - 97)*3] != '.'){
+                        printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
+                        aux = false;
+                        break;
+                    }
                 }
             }
         }
@@ -376,88 +374,88 @@ void montar_tabuleiro(char (*linha)[8][26]) {  // o *linha nao tava dando certo 
         case 1:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[0][i] = 'O';
+                    (*linha)[0][i] = 'B';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                    (*linha)[i][(letra1-97)*3] = 'O';
+                    (*linha)[i][(letra1-97)*3] = 'B';
                 }
             }
         break;
         case 2:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[1][i] = 'O';
+                    (*linha)[1][i] = 'B';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'B';
                 }
             }
         break;
         case 3:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[2][i] = 'O';
+                    (*linha)[2][i] = 'B';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'B';
                 }
             }
         break;
         case 4:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[3][i] = 'O';
+                    (*linha)[3][i] = 'B';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'B';
                 }
             }
         break;
         case 5:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[4][i] = 'O';
+                    (*linha)[4][i] = 'B';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'B';
                 }
             }
         break;
         case 6:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[5][i] = 'O';
+                    (*linha)[5][i] = 'B';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'B';
                 }
             }
         break;
         case 7:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[6][i] = 'O';
+                    (*linha)[6][i] = 'B';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'B';
                 }
             }
         break;
         case 8:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[7][i] = 'O';
+                    (*linha)[7][i] = 'B';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'B';
                 }
             }
         break;
@@ -471,7 +469,7 @@ void montar_tabuleiro(char (*linha)[8][26]) {  // o *linha nao tava dando certo 
     printf("%s\n", abc);
 
     do{
-        printf("Agora digite a primeira posicao do Bote(ocupa 2 casas): ");
+        printf("Agora digite a primeira posicao do Canoa(ocupa 2 casas): ");
         scanf(" %s", &ponta);
         printf("Digite a segunda posicao do Bote: ");
         scanf(" %s", &ponta2);
@@ -491,26 +489,26 @@ void montar_tabuleiro(char (*linha)[8][26]) {  // o *linha nao tava dando certo 
             aux = true;
         }else if(ponta2[0] - 1 == ponta[0]){
             aux = true;
-        }else if(ponta[1] - 1 == ponta2[1]){
-            aux = true;
         }else{
             aux = false;
         }
-        if(numero1 == numero2){
-            for (int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){ 
-                if ((*linha)[numero1-1][i] == 'O'){
-                    printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
-                    aux = false;
-                    break;
+        if(aux == true){
+            if(numero1 == numero2){
+                for (int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){ 
+                    if ((*linha)[numero1-1][i] != '.'){
+                        printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
+                        aux = false;
+                        break;
+                    }
                 }
-            }
-            
-        } else if(letra1 == letra2){
-            for(int i = numero1 - 1; i <= numero2 - 1; i++){
-                if((*linha)[i][letra1 - 97] == 'O'){
-                    printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
-                    aux = false;
-                    break;
+
+            } else if(letra1 == letra2){
+                for(int i = numero1 - 1; i <= numero2 - 1; i++){
+                    if((*linha)[i][(letra1 - 97)*3] != '.'){
+                        printf("\nHa casas ja ocupadas por outros barcos nessa posicao, por favor escolha apenas casas livres\n");
+                        aux = false;
+                        break;
+                    }
                 }
             }
         }
@@ -523,88 +521,88 @@ void montar_tabuleiro(char (*linha)[8][26]) {  // o *linha nao tava dando certo 
         case 1:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[0][i] = 'O';
+                    (*linha)[0][i] = 'C';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                    (*linha)[i][(letra1-97)*3] = 'O';
+                    (*linha)[i][(letra1-97)*3] = 'C';
                 }
             }
         break;
         case 2:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[1][i] = 'O';
+                    (*linha)[1][i] = 'C';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'C';
                 }
             }
         break;
         case 3:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[2][i] = 'O';
+                    (*linha)[2][i] = 'C';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'C';
                 }
             }
         break;
         case 4:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[3][i] = 'O';
+                    (*linha)[3][i] = 'C';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'C';
                 }
             }
         break;
         case 5:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[4][i] = 'O';
+                    (*linha)[4][i] = 'C';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'C';
                 }
             }
         break;
         case 6:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[5][i] = 'O';
+                    (*linha)[5][i] = 'C';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'C';
                 }
             }
         break;
         case 7:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[6][i] = 'O';
+                    (*linha)[6][i] = 'C';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'C';
                 }
             }
         break;
         case 8:
             if(numero1 == numero2){
                 for(int i = (letra1-97) * 3; i <= (letra2 - 97) * 3; i = i + 3){
-                    (*linha)[7][i] = 'O';
+                    (*linha)[7][i] = 'C';
                 }
             } else{
                 for(int i = numero1-1; i <= numero2-1; i++){
-                (*linha)[i][(letra1-97)*3] = 'O';
+                (*linha)[i][(letra1-97)*3] = 'C';
                 }
             }
         break;
