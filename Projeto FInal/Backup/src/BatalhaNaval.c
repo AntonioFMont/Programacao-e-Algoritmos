@@ -1,13 +1,13 @@
 #include "../Headers/instrucao.h"
 #include "../Headers/jogo.h"
 #include "../Headers/Gameplay.h"
-#include "../Headers/limpar_tela.h"
 #include <stdio.h>
 #include <stdlib.h>
+C:\Users\anton\OneDrive\Documentos\GitHub\Programacao-e-Algoritmos\Projeto FInal
 int main(){
     int resp = 0; 
     do{
-        limpar_tela();
+        system("cls");
         printf("===========================================\n");
         printf("               BATALHA NAVAL               \n");
         printf("===========================================\n");
@@ -21,7 +21,7 @@ int main(){
         while ((limp = getchar()) != '\n' && limp != EOF);              // Os bugs com o getchar() aconteceram por que eu não estava restando buffer(acho que se chama assim) depois do scanf, que no caso era o ENTER ou \n
         switch (resp){
             case 1:
-                limpar_tela();
+                system("cls");
                 char tabuleiro1[8][26];
                 char tabuleiro2[8][26];
                 FILE *p1 = fopen("Doc/Player1.txt", "w");         
@@ -49,7 +49,7 @@ int main(){
                         }                                                     
                     }
                     fclose(p1);
-                    limpar_tela();
+                    system("cls");
                     printf("Agora o jogador 2 deve montar seu tabuleiro.\n");
                     printf("Jogador 2, aperte ENTER para comecar a colocar seus barcos\n");
                     getchar();    
@@ -64,7 +64,7 @@ int main(){
                 gameplay(tabuleiro1, tabuleiro2, 1);
                 break;
             case 2:
-                limpar_tela();
+                system("cls");
                 FILE *f1 = fopen("Doc/InformacoesParaSalvamento.txt", "r");
                 fseek(f1, 0, SEEK_END);
                 int posicao = ftell(f1);
@@ -79,16 +79,17 @@ int main(){
                 }
                 break;
             case 3:
-                limpar_tela();
+                system("cls");
                 ler();
                 break;
             case 4:
                 printf("Obrigado por jogar batalha naval!");
                 exit(0);
             default:
-                limpar_tela();
+                system("cls");
                 printf("Essa nao e uma opcao valida, por favor escolha entre numeros de 1 a 4\n");
                 getchar();
+                system("cls");
                 break;
         }
     } while (resp != 4);

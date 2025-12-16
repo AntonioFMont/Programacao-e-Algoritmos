@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdbool.h>
 #include "../Headers/jogo.h"
-#include "../Headers/limpar_tela.h"
 /*
     PROTOTIPO
     x = ATIRADO

@@ -4,10 +4,10 @@
 #include <string.h>
 #include <time.h>
 #include "../Headers/Gameplay.h"
-
-    // faço a função receber os dois ponteiros FILE que apontam para o campo dos jogadores (no caso o Player1.txt e o Player2.txt);
-    
+#include "../Headers/limpar_tela.h"
+ 
 void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_jogador2[8][26], int novo_jogo){
+    int limp; 
     FILE *f1, *f2, *f3, *f4;
     time_t dt = time(NULL);                 // forma de colocar a data, aprendi num tutorial do youtube e achei mt legal, provavelmente amanha vou esquecer mas e bom ja começar a aprender
     struct tm data = *localtime(&dt);
@@ -22,7 +22,7 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
     char abc[] = "a  b  c  d  e  f  g  h";
     
     if(novo_jogo == 1){
-        f1 = fopen("C:\\Users\\anton\\OneDrive\\Documentos\\GitHub\\Programacao-e-Algoritmos\\Projeto FInal\\Doc\\Campo_Jogador1.txt", "w");    // lembrar que quando for passar o arquivo pra header colocar o endereço.
+        f1 = fopen("Doc/Campo_Jogador1.txt", "w");
         strcpy(campo_jogador1[7], ".  .  .  .  .  .  .  .  8");
         strcpy(campo_jogador1[6], ".  .  .  .  .  .  .  .  7");
         strcpy(campo_jogador1[5], ".  .  .  .  .  .  .  .  6");
@@ -37,10 +37,9 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
                 printf("Erro ao colar arquivo\n");
                 break;
             }
-            // if(i > 0) fprintf(f1, "\n");
         }
-        fclose(f1);                                                         // eu preciso dar fclose no começo? (é melhor e uma boa pratica)
-        f2 = fopen("C:\\Users\\anton\\OneDrive\\Documentos\\GitHub\\Programacao-e-Algoritmos\\Projeto FInal\\Doc\\Campo_Jogador2.txt", "w");
+        fclose(f1);                                                        
+        f2 = fopen("Doc/Campo_Jogador2.txt", "w");
         strcpy(campo_jogador2[7], ".  .  .  .  .  .  .  .  8");
         strcpy(campo_jogador2[6], ".  .  .  .  .  .  .  .  7");
         strcpy(campo_jogador2[5], ".  .  .  .  .  .  .  .  6");
@@ -55,15 +54,14 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
                 printf("Erro ao colar arquivo\n");
                 break;
             }
-            // if(i > 0) fprintf(f2, "\n");
         }
         fclose(f2);
         printf("Agora vamos comecar o jogo!\nO jogador 1 comecara jogando.\n");
         printf("Jogador 1, aperte ENTER para comecar\n");
-        system("pause > nul");
+        getchar();
     }else if(novo_jogo == 0){
-        f1 = fopen("C:\\Users\\anton\\OneDrive\\Documentos\\GitHub\\Programacao-e-Algoritmos\\Projeto FInal\\Doc\\Campo_Jogador1.txt", "r");
-        f2 = fopen("C:\\Users\\anton\\OneDrive\\Documentos\\GitHub\\Programacao-e-Algoritmos\\Projeto FInal\\Doc\\Campo_Jogador2.txt", "r");
+        f1 = fopen("Doc/Campo_Jogador1.txt", "r");
+        f2 = fopen("Doc/Campo_Jogador2.txt", "r");
         for(int i = 7; i >= 0; i--){
             if(fgets(campo_jogador1[i], sizeof(campo_jogador1[i]), f1) == NULL){
                 printf("Erro ao copiar o arquivo do Jogador 1");
@@ -78,7 +76,7 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
             char aux[2];
             fgets(aux, sizeof(aux), f2);
         }
-        f3 = fopen("C:\\Users\\anton\\OneDrive\\Documentos\\GitHub\\Programacao-e-Algoritmos\\Projeto FInal\\Doc\\InformacoesParaSalvamento.txt", "r");
+        f3 = fopen("Doc/InformacoesParaSalvamento.txt", "r");
         fscanf(f3, "%*s %*s %d", &acertos_jg1);
         fscanf(f3, " %*s %*s %d", &erros_jg1);
         fscanf(f3, " %*s %d", &pirata);
@@ -95,27 +93,11 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
         fclose(f2);
         fclose(f3);
 
-/*      ORDEM PARA SALVAMENTO
-                Acertos jogador1: %d
-                Erros jogador1: %d
-                Pirata: %d
-                Viking: %d
-                Pesca: %d
-                Canoa: %d
-                Acertos jogador2: %d
-                Erros jogador2: %d
-                Pirata2: %d
-                Viking2: %d
-                Pesca2: %d
-                Canoa2: %d
-                */
-
-
     }
     // começo do jogo
     do{
         system("cls");
-        bool jogar_novamente = true, aux = true;        // cuidado para não estar errado
+        bool jogar_novamente = true, aux = true;        
         do{
             for(int i = 7; i >= 0; i--){
                 printf("%s\n", campo_jogador2[i]);
@@ -124,11 +106,12 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
             do{
                 printf("Jogador 1: Escolha a coordenada da casa que deseja atacar: ");
                 scanf(" %s", &escolha);
+                while ((limp = getchar()) != '\n' && limp != EOF);     //limpar buffer
                 if((escolha[0] - 97) > 7 || (escolha[1] - 49) > 7){
                     printf("Por favor escolha uma coordenada que esteja dentro do mapa.\n");
                     aux = false;
                     
-                }else if(campo_jogador2[escolha[1] - '1'][(escolha[0] - 'a')*3] != '.'){        // se der erro subtrair pelo numero;
+                }else if(campo_jogador2[escolha[1] - '1'][(escolha[0] - 'a')*3] != '.'){       
                     printf("Essa coordenada ja foi atacada, por favor escolha uma coordenada que ainda nao foi escolhida.\n");
                     aux = false;   
                 }else{
@@ -136,7 +119,7 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
                 }
             } while(aux == false);
             int numero = escolha[1] - '1';
-            char letra = escolha[0] - 'a';      // se der erro talvez seja aqui(subtrair 97 ao invés de 'a'?)
+            char letra = escolha[0] - 'a';     
             switch(tabuleiro_original_jogador2[numero][letra * 3]){
                 case 'P':
                 printf("Voce acertou um navio!\n");
@@ -195,7 +178,7 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
         
                 // Vez do Jogador 2
         printf("Agora, jogador 2, por favor aperte ENTER para comecar a jogar\n");
-        system("pause > nul");
+        getchar();
         system("cls");
         do{
             for(int i = 7; i >=0; i--){
@@ -205,6 +188,7 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
             do{
                 printf("Jogador 2: Escolha uma coordenada para atacar: ");
                 scanf(" %s", &escolha);
+                while((limp = getchar()) != '\n' && limp != EOF);
                 if((escolha[0] - 97) > 7 || (escolha[1] - 49) > 7){
                     printf("Por favor escolha uma coordenada que esteja dentro do mapa.\n");
                     aux = false;
@@ -275,43 +259,28 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
         do{
             printf("Voce deseja salvar o jogo e sair?\n1 - Sim\n2 - Nao(continuar o jogo)\n");
             scanf(" %d", &salvar);
+            while ((limp = getchar()) != '\n' && limp != EOF);
                 switch (salvar){
                 case 1:
-                f1 = fopen("C:\\Users\\anton\\OneDrive\\Documentos\\GitHub\\Programacao-e-Algoritmos\\Projeto FInal\\Doc\\Campo_Jogador1.txt", "w");
+                f1 = fopen("Doc/Campo_Jogador1.txt", "w");
                 for(int i = 7;i >= 0 ; i--){
                     int verif = fprintf(f1, "%s\n", campo_jogador1[i]);
                     if(verif < 0){
                         printf("Erro ao colar arquivo na linha %d\n", i);
                         break;
                     }
-                    // if(i > 0) fprintf(f1, "\n");
                 }
                 fclose(f1);
-                f2 = fopen("C:\\Users\\anton\\OneDrive\\Documentos\\GitHub\\Programacao-e-Algoritmos\\Projeto FInal\\Doc\\Campo_Jogador2.txt", "w");
+                f2 = fopen("Doc/Campo_Jogador2.txt", "w");
                 for(int i = 7; i >= 0; i--){
                     int verif = fprintf(f2, "%s\n", campo_jogador2[i]);
                     if(verif < 0){
                         printf("Erro ao colar arquivo na linha %d \n", i);
                         break;
                     }
-                    // if(i > 0) fprintf(f2, "\n");
                 }
                 fclose(f2);
-                f3 = fopen("C:\\Users\\anton\\OneDrive\\Documentos\\GitHub\\Programacao-e-Algoritmos\\Projeto FInal\\Doc\\InformacoesParaSalvamento.txt", "w");
-                /*      ORDEM PARA SALVAMENTO
-                Acertos jogador1: %d
-                Erros jogador1: %d
-                Pirata: %d
-                Viking: %d
-                Pesca: %d
-                Canoa: %d
-                Acertos jogador2: %d
-                Erros jogador2: %d
-                Pirata2: %d
-                Viking2: %d
-                Pesca2: %d
-                Canoa2: %d
-                */
+                f3 = fopen("Doc/InformacoesParaSalvamento.txt", "w");
                 fprintf(f3, "Acertos Jogador1: %d\n", acertos_jg1);
                 fprintf(f3, "Erros jogador1: %d\n", erros_jg1);
                 fprintf(f3, "Pirata: %d\n", pirata);
@@ -327,7 +296,7 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
                 fclose(f3);
                 printf("Jogo salvo!\n");
                 printf("Aperte ENTER para sair\n");
-                system("pause > nul");
+                getchar();
                 return;
                 case 2:
                 break;
@@ -337,7 +306,7 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
                 }
         }while(salvar != 1 && salvar != 2);
         printf("Agora e a vez do jogador 1, por favor, jogador 1 aperte ENTER para jogar.\n");
-        system("pause > nul");
+        getchar();
     } while (acertos_jg1 != 14 || acertos_jg2 != 14);
     if(acertos_jg1 == 14){
         system("cls");
@@ -348,7 +317,7 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
         printf("\n\nParabens Jogador 2!!! Voce ganhou\n");
         strcpy(vencedor, "Player2");
     }
-    f4 = fopen("C:\\Users\\anton\\OneDrive\\Documentos\\GitHub\\Programacao-e-Algoritmos\\Projeto FInal\\Doc\\JogosSalvos.txt", "a");
+    f4 = fopen("Doc/JogosSalvos.txt", "a");
     fprintf(f4, "   Jogo do dia %d/%d/%d\n", data.tm_mday, data.tm_mon+1, data.tm_year+1900);   
     fprintf(f4, "Vencedor: %s\n", vencedor);  // +1 pq mes começa no 0 ^                ^ +1900 porque por algum motivo ele subtrai 1900 anos no total
     fprintf(f4, "Numero de rodadas: %d\n", acertos_jg1+erros_jg1);
@@ -361,11 +330,11 @@ void gameplay(char tabuleiro_original_jogador1[8][26], char tabuleiro_original_j
     printf("O jogador 1 acertou %d vezes e errou %d vezes\n", acertos_jg1, erros_jg1);
     printf("O jogador 2 acertou %d vezes e errou %d vezes\n", acertos_jg2, erros_jg2);
     printf("Os dados estao salvos no arquivo JogosSalvos.txt\n");
-    f3 = fopen("C:\\Users\\anton\\OneDrive\\Documentos\\GitHub\\Programacao-e-Algoritmos\\Projeto FInal\\Doc\\InformacoesParaSalvamento.txt", "w");
+    f3 = fopen("Doc/InformacoesParaSalvamento.txt", "w");
     fclose(f3);
 
     printf("Obrigado por jogar batalha naval!\n");
     printf("Aperte ENTER para voltar para o menu\n");
-    system("pause > nul");
+    getchar();
     return;
 }
