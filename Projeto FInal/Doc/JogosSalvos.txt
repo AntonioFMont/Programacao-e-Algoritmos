@@ -12,3 +12,10 @@ Acertos jogador 1: 14
 Erros jogador 1: 5
 Acertos jogador 2: 12
 Erros jogador 2: 5
+   Jogo do dia 15/12/2025
+Vencedor: Player2
+Numero de rodadas: 9
+Acertos jogador 1: 8
+Erros jogador 1: 1
+Acertos jogador 2: 14
+Erros jogador 2: 0
